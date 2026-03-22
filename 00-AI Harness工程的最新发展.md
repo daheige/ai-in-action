@@ -5,8 +5,6 @@ AI Harness工程正成为2026年AI落地的核心范式，其发展已从概念�
 
 目前AI Harness Engineering 是指为 AI Agent 构建稳定、可扩展、可监控的运行环境的系统工程，其核心是从“提示词优化”转向“环境治理”。
 
-Harness Engineering的三大核心演进方向
-
 # AI Harness Engineering 是什么？
 AI Harness Engineering 是一种用于构建和管理 AI Agent 的工程范式，其核心思想是通过提供结构化环境、工具集成、反馈机制和上下文管理，使 AI Agent 能够更稳定、高效地执行复杂任务。
 
@@ -14,6 +12,7 @@ AI Harness Engineering 是一种用于构建和管理 AI Agent 的工程范式�
 Harness Engineering的本质，是将软件工程从“人类中心”转向“Agent-aware”系统 。这意味着代码仓库结构、开发工具、CI/CD流程都需要被重新设计，以支持AI智能体的理解与调用。例如，OpenAI团队在根目录放置`AGENTS.md`文件，作为Agent启动时自动读取的“工作指南”。
 
 # 未来工程师的工作模式和核心能力
+Harness Engineering的三大核心演进方向如下：
 1. 角色转变：工程师成为“AI驾驭者”
    - 传统模式：工程师直接编写代码
    - 新范式：人类掌舵，智能体执行（Humans steer, agents execute） 
