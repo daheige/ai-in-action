@@ -6,6 +6,7 @@ from openai import OpenAI
 
 load_dotenv()
 
+# 创建 openai client
 client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY"),
     base_url=os.getenv("OPENAI_BASE_URL"),  # DeepSeek
@@ -49,6 +50,7 @@ Calculator: 计算器，输入数学表达式（如 4.5**0.23），返回计算�
 
 # ---------- ReAct 循环 ----------
 
+# 工具定义的提示词模版
 PROMPT_TEMPLATE = """尽可能回答下列问题，你可以使用以下工具：
 
 {tools}
@@ -70,12 +72,13 @@ Question: {question}
 Thought:{scratchpad}"""
 
 
+# max_steps 最大执行步数
 def run_agent(question: str, max_steps: int = 6) -> str:
     scratchpad = ""
     for _ in range(max_steps):
         prompt = PROMPT_TEMPLATE.format(
-            tools=TOOL_DESC,
-            tool_names=", ".join(TOOLS),
+            tools=TOOL_DESC,  # 工具描述
+            tool_names=", ".join(TOOLS),  # 工具名称
             question=question,
             scratchpad=scratchpad,
         )
@@ -109,5 +112,5 @@ def run_agent(question: str, max_steps: int = 6) -> str:
     return "超过最大步数，未得到最终答案"
 
 
-answer = run_agent("奥利维亚·王尔德的男朋友是谁?他现在的年龄的0.23次方是多少?")
+answer = run_agent("rust语言是什么？它未来发展趋势，特别是ai领域，未来5年发展怎么样?")
 print("\n最终答案:", answer)

@@ -86,6 +86,87 @@
 
 抱歉，我没有关于你兴趣的任何信息。不过，这是目前全球热门的电影列表：[电影列表]。希望你能找到喜欢的电影！
 
+# 对话
+你可以通过提示工程进行更有趣的实验，比如指导大语言模型系统如何表现，指定它的行为意图和身份。 当你在构建对话系统，如客户服务聊天机器人时，这尤其有用。
+
+比如，可以通过以下示例创建一个对话系统，该系统能够基于问题给出技术性和科学的回答。 你可以关注我们是如何通过指令明确地告诉模型应该如何表现。 这种应用场景有时也被称为角色提示（Role Prompting）。
+
+提示词：
+```ini
+The following is a conversation with an AI research assistant. The assistant tone is technical and scientific.
+
+Human: Hello, who are you?
+AI: Greeting! I am an AI research assistant. How can I help you today?
+Human: Can you tell me about the creation of blackholes?
+AI:
+```
+输出：
+```ini
+Sure! Black holes are regions of spacetime where the gravitational force is so strong that nothing, not even light, can escape from it. They are created when a very massive star dies and its core collapses in on itself, forming a singularity of infinite density. The intense gravity of the singularity pulls in all the matter and radiation around it, creating the black hole.
+```
+我们的AI研究助手听起来有点太技术性了，对吗？好的，让我们改变这种行为，并指示系统给出更易于理解的回答。
+
+提示词：
+```ini
+The following is a conversation with an AI research assistant. The assistant answers should be easy to understand even by primary school students.
+
+Human: Hello, who are you?
+AI: Greeting! I am an AI research assistant. How can I help you today?
+Human: Can you tell me about the creation of black holes?
+AI: 
+```
+输出：
+```ini
+Sure! Black holes are created when a very massive star runs out of fuel and collapses in on itself. The gravity of the star is so strong that nothing, not even light, can escape its pull. This creates a point in space-time with an intense gravitational force called a black hole.
+```
+
+# 代码生成
+大语言模型（LLMs）在代码生成方面非常有效。 在此方面，Copilot 就是一个很好的示例。通过巧妙的提示，你可以执行大量的代码生成任务。下面我们来看几个示例。
+
+我们先用它写个简单的用户欢迎程序：
+提示词：
+```ini
+/*
+Ask the user for their name and say "Hello"
+*/
+```
+输出：
+```javascript
+let name = prompt("What is your name?");
+console.log(`Hello, ${name}!`);
+```
+你看，我们甚至都不需要指定要使用的编程语言。
+
+来，我们再稍微升级一下。 下面的示例展示了通过稍微多一点的提示词设计工作，LLMs可以变得多么强大。
+
+提示词：
+```ini
+"""
+Table departments, columns = [DepartmentId, DepartmentName]
+Table students, columns = [DepartmentId, StudentId, StudentName]
+Create a MySQL query for all students in the Computer Science Department
+"""
+```
+输出：
+```sql
+SELECT StudentId, StudentName 
+FROM students 
+WHERE DepartmentId IN (SELECT DepartmentId FROM departments WHERE DepartmentName = 'Computer Science');
+```
+这非常令人印象深刻。在这种情况下，你提供了关于数据库模式的数据，并要求它生成一个有效的 MySQL 查询。
+
+# 推理
+也许，当今大型语言模型（LLM）面临的最困难任务之一是需要某种形式的推理的任务。推理是最具吸引力的领域之一，因为有了推理，就可以从LLM中涌现出各种复杂的应用类型。
+
+目前，涉及数学能力的推理任务已经有了一些改进。 对于当前的大型语言模型来说，执行推理任务可能会有一些难度，因此就需要更高级的提示词工程技术。 我们会在后面的指南中介绍这些高级技术。 现在，我们将介绍几个基本示例来展示算术功能。
+
+提示词：
+
+What is 9,000 * 9,000?
+
+输出：
+
+81,000,000
 
 
 
