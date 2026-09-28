@@ -9,3 +9,6 @@ https://www.promptingguide.ai/zh
 
 # 提示技术
 https://www.promptingguide.ai/zh/techniques
+
+# openai prompting 实践
+https://developers.openai.com/api/docs/guides/prompting
