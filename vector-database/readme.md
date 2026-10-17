@@ -33,11 +33,16 @@ curl http://localhost:6333/cluster
 
 # python虚拟环境
 ```shell
-uv python install 3.12
-uv python pin 3.12
-rm -rf .venv
-uv venv
+uv venv myenv --python 3.12
+# uv venv
 uv pip install qdrant-client sentence-transformers openai numpy
+uv pip list                         # 列出已安装包
+uv pip show qdrant-client           # 查看包详情
+uv pip freeze >> requirements.txt   # 导出 requirements 格式
+```
+如果虚拟环境已建立，可以安装对应的依赖包
+```shell
+uv pip install -r requirements.txt  # 从 requirements.txt 安装
 ```
 
 # 编写 qdrant测试
